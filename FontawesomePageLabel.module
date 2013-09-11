@@ -196,7 +196,7 @@ $stylesheets = wire('pages')->get("parent={$config->adminRootPageID}, template=F
 			if(isset($defaults[$template->name])) {
 				$array = $defaults[$template->name];
 				$selectors .= "{$template->name}, {$array[0]}\n";
-				$styles .= "/* {$array[1]} */\n.{$array[0]} {\n\t\n}\n\n";
+				$styles .= "/* {$array[1]} */\nspan.{$array[0]} {\n\t\n}\n\n";
 			}
 		}
 
@@ -206,7 +206,7 @@ $stylesheets = wire('pages')->get("parent={$config->adminRootPageID}, template=F
 			if(!is_int($key)) continue;
 			// append page IDs to settings string
 			$selectors .= trim("{$key}, {$value[0]} /* {$value[1]} */") . "\n";
-			$styles .= "/* $value[1] */\n.{$value[0]} {\n\t\n}\n\n";
+			$styles .= "/* $value[1] */\nspan.{$value[0]} {\n\t\n}\n\n";
 		}
 
 		self::$selectors = $selectors;
