@@ -76,7 +76,7 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
 		$class = $this->classname();
 		$config = $this->config;
 
-$stylesheets = wire('pages')->get("parent={$config->adminRootPageID}, template=FontawesomePageLabel, include=hidden");
+		$stylesheets = wire('pages')->get("parent={$config->adminRootPageID}, template=FontawesomePageLabel, include=hidden");
 
 		$config->styles->append($stylesheets->httpUrl);
 		$config->scripts->append("{$config->urls->$class}/{$class}.js");
@@ -96,7 +96,6 @@ $stylesheets = wire('pages')->get("parent={$config->adminRootPageID}, template=F
 		if((bool) $this->data['selectors'] === false) $event->return;
 
 		$lines = explode("\n", $this->data['selectors']);
-		// if(count($lines)) return;
 
 		$selectors = array();
 		$selectors['default-icon'] = $this->default;
@@ -110,7 +109,6 @@ $stylesheets = wire('pages')->get("parent={$config->adminRootPageID}, template=F
 			$x = explode(",", $line);
 			if(count($x) !== 2 ) continue;
 			$selector = trim($x[0]);
-			//if(!wire('templates')->get($selector)->id) continue;
 			$classname = trim($x[1]);
 			if(strpos($classname, "icon-") !== 0) continue;
 
