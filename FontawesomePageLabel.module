@@ -16,6 +16,7 @@
  *   else it resets to the styles default. (leaving a css comment is sufficient)
  * 
  * @author: Martijn Geerts
+ * 
  *
  * ProcessWire 2.x 
  * Copyright (C) 2010 by Ryan Cramer 
@@ -25,6 +26,7 @@
  * http://www.ryancramer.com
  *
  */
+
 
 class FontawesomePageLabel extends WireData implements Module, ConfigurableModule { 
 
@@ -38,7 +40,7 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
 		// information
 		return array(
 			'title' => 'Font Awesome Page Label',
-			'version' => 1,
+			'version' => 10,
 			'summary' => "Pagelist Label with Font Awesome font icons.",
 			'author' => "martijn Geerts",
 			'href' => 'http://www.processwire.com',
