@@ -14,9 +14,6 @@
 
 ![settings](./settings.png)
 
-
-<img src="copy-template.png" style="float: right; margin-left: 10px;" />
-
 ### How to install
 
 
@@ -27,7 +24,7 @@
 
 **Important:** The Styles input in the settings need to have some data in it else it will be reinitialized. (You could leave a comment there.)
 
-*aside: I recommend editting the template, so you could use your faforite editot to edit the CSS.*
+*aside: I recommend editting the template, so you could use your faforite editor to edit the CSS.*
 
 ### Special Thanks to:
 
