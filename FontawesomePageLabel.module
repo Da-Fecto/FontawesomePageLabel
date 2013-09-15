@@ -74,7 +74,7 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
  		$this->addHookBefore('Page::render', $this, 'addToConfig');
 	}
 
-	// empty init somehow it's needed.
+	// empty init. See Module interface why.
 	public function init() {
 	}
 
