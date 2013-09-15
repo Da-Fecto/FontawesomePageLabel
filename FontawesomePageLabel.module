@@ -68,9 +68,14 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
 	 *
 	 */
 
-	public function init() {
-  		$this->addHookAfter('Page::render', $this, 'rewriteJsConfig');
+	public function ready() {
+		if($this->page->template != 'admin') return;
 		$this->addHookBefore('ProcessPageList::execute', $this, 'appendStylesScripts');
+ 		$this->addHookBefore('Page::render', $this, 'addToConfig');
+	}
+
+	// empty init somehow it's needed.
+	public function init() {
 	}
 
 	protected function appendStylesScripts(HookEvent $event) {
@@ -85,14 +90,11 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
 	}
 
 	/**
-	 * rewriteJsConfig
-	 * 
-	 * Dirty Hack to set data.
+	 * addToConfig
 	 *
-	 * @return (string) The changed HTML of the admin.
 	 */
 
-	protected function rewriteJsConfig(HookEvent $event) {
+	protected function addToConfig(HookEvent $event) {
 
 		// if there are no selectors, return 
 		if((bool) $this->data['selectors'] === false) $event->return;
@@ -113,15 +115,10 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
 			$selector = trim($x[0]);
 			$classname = trim($x[1]);
 			if(strpos($classname, "icon-") !== 0) continue;
-
 			$selectors[$selector] = $classname;
 		}
-		 
-		// Find $search and create $replace give formatted string back
-		preg_match("/config\s=\s{(.*);/", $event->return, $json, 0);	
-		$search = $json[1];
-		$replace = '"icons":' . json_encode($selectors) . ',' . $search;
-		$event->return = str_replace($search, $replace, $event->return);
+
+		$this->config->js('icons', $selectors);
 	}
 
 	/**
