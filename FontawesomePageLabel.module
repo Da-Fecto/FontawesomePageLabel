@@ -40,7 +40,7 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
 		// information
 		return array(
 			'title' => 'Font Awesome Page Label',
-			'version' => 50,
+			'version' => 65,
 			'summary' => "Pagelist Label with Font Awesome font icons.",
 			'author' => "Martijn Geerts",
 			'href' => 'http://www.processwire.com',
