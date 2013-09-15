@@ -18,7 +18,7 @@
 
 
 - Download the contents of this repository and put the folder renamed as **FontawesomePageLabel** into your site/modules/ folder.
-- Copy the template **FontawesomePageLabel.php** to your **./site/templates/** folder. (see image on the right)
+- Copy the template **FontawesomePageLabel.php** to your **./site/templates/** folder.
 - Login to processwire go to Modules and click "Check for new modules". You should see a note that a new module was found. Install the module.
 - Press submit at the bottom at least one more time. (important)
 
