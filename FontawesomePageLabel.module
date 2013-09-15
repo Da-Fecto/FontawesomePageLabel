@@ -40,9 +40,9 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
 		// information
 		return array(
 			'title' => 'Font Awesome Page Label',
-			'version' => 10,
+			'version' => 50,
 			'summary' => "Pagelist Label with Font Awesome font icons.",
-			'author' => "martijn Geerts",
+			'author' => "Martijn Geerts",
 			'href' => 'http://www.processwire.com',
 			'singular' => true,
 			'autoload' => true,
@@ -141,8 +141,6 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
 	public function getDefaults() {
 
 		$templates = wire("templates");
-
-		// empty array 
 		$selectors = "";
 
 		$styles .= "/* Leave me here, I prevent styles reset. */\n\n";
@@ -263,31 +261,31 @@ class FontawesomePageLabel extends WireData implements Module, ConfigurableModul
 		$f->value = trim($data["default"]);
 		$f->required = "required";
 		$f->label = __("Default Class Name");
-		$f->notes .= __("If no icons is chosen. (Find the CSS class name at the [Font Awesome](http://fontawesome.io/icons/) website.)");
+		$f->notes .= __("If not covered with Classname Selectors. (Find the CSS class name at the [Font Awesome](http://fontawesome.io/icons/) website.)");
 		$inputfields->append($f);
 
 		$f = $modules->get("InputfieldText");
 		$f->attr('name', "file"); 
 		$f->columnWidth = 34;
 		$f->value = $data["file"] ? $data["file"] : null;
-		$f->label = __("File Icon");
-		$f->notes = __("Leave empty for no file icon on the right side.");
+		$f->label = __("File Icon Classname");
+		$f->notes = __("Leave empty for no file indication");
 		$inputfields->append($f);
 
 		$f = $modules->get("InputfieldText");
 		$f->attr('name', "folder_open");
 		$f->columnWidth = 33;
 		$f->value = $data["folder_open"];
-		$f->label = __("Open Folder Icon");
-		$f->notes = __("Leave empty for no folder icon on the right side.");
+		$f->label = __("Open Folder Icon Classname");
+		$f->notes = __("Leave empty for no open folder indication");
 		$inputfields->append($f);
 
 		$f = $modules->get("InputfieldText");
 		$f->attr('name', "folder_close"); 
 		$f->columnWidth = 33;
 		$f->value = $data["folder_close"];
-		$f->label = __("Closed Folder Icon");
-		$f->notes = __("Leave empty for no folder icon on the right side.");
+		$f->label = __("Closed Folder Icon Classname");
+		$f->notes = __("Leave empty for no closed folder indication");
 		$inputfields->append($f);
 
 		$f = $modules->get("InputfieldTextarea");

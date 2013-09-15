@@ -79,7 +79,7 @@
 				var $PageListPage = $(".PageListID" + child.id + " > a:eq(0)"),
 					openPageIDs = config.ProcessPageList.openPageIDs,
 					awesome_icon = config.icons["default-icon"];
-				
+
 				$PageListPage.attr("data-id", child.id);
 
 				// if id in openPageIDs && has children
@@ -93,19 +93,19 @@
 					child.icon = icon.file;
 				}
 					
-				if(child.id in config.icons) {
-					awesome_icon = config.icons[child.id];
-				} else if(child.template in config.icons) {
-					awesome_icon = config.icons[child.template];
+				// if item contains image, don't render icon.
+				if(!$PageListPage.find("img").length) {
+					if(child.id in config.icons) {
+						awesome_icon = config.icons[child.id];
+					} else if(child.template in config.icons) {
+						awesome_icon = config.icons[child.template];
+					}
+					$PageListPage.before("<span class='" + awesome_icon + "'></span>");
 				}
-
-				$PageListPage.before("<span class='" + awesome_icon + "'></span>");
 
 				if( child.icon !== '' ) {
-						$PageListPage.append($("<i class='" + child.icon + "' id='icon-" + child.id + "' data-children='" + child.numChildren + "'></i>"));
+					$PageListPage.append($("<i class='" + child.icon + "' id='icon-" + child.id + "' data-children='" + child.numChildren + "'></i>"));
 				}
-
-
 			});
 		});
 	});
