@@ -1,5 +1,9 @@
 # Font Awesome Page Label
 
+**DEPRECATED**
+
+This module is deprecated
+
 ###Yet another PageListLabel module?
 
 - [Font Awesome](http://fontawesome.io/) is really awesome, hundreds of high quality icons, ready to use. (Don't we all know how cool icon fonts are.)
@@ -12,7 +16,7 @@
 
 ### The Settings
 
-![settings](./settings.png)
+![settings](https://github.com/Da-Fecto/FontawesomePageLabel/raw/master/settings.png)
 
 ### How to install
 
